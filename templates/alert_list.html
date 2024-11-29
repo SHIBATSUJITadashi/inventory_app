@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}アラート一覧 - 在庫管理システム{% endblock %}
+
+{% block content %}
+    <h1>アラート一覧</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>商品名</th>
+                <th>アラート状態</th>
+                <th>発生日時</th>
+                <th>解決日時</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alert in alerts %}
+                <tr>
+                    <td>{{ alert.inventory.name }}</td>
+                    <td>{{ alert.status }}</td>
+                    <td>{{ alert.triggered_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>{{ alert.resolved_at.strftime('%Y-%m-%d %H:%M') if alert.resolved_at else '未解決' }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">アラートはありません。</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

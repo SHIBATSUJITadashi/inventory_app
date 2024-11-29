@@ -1,20 +1,23 @@
 {% extends "layout.html" %}
 
-{% block title %}ホーム - 在庫管理システム{% endblock %}
+{% block title %}ログイン - 在庫管理システム{% endblock %}
 
 {% block content %}
-<h1>在庫管理システムへようこそ</h1>
-<p>下のプルダウンからお名前を選択してください。</p>
-
+<h1>店員ログイン</h1>
 <form method="POST" action="/">
-    <label for="name">お名前:</label>
-    <select id="name" name="name" required>
-        <option value="" disabled selected>選択してください</option>
-        <option value="AAAA">AAAA</option>
-        <option value="BBBB">BBBB</option>
-        <option value="CCCC">CCCC</option>
-        <option value="DDDD">DDDD</option>
-    </select>
-    <button type="submit">送信</button>
+    <label for="username">ユーザー名</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">パスワード</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">ログイン</button>
+
+    <!-- エラーメッセージ -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="error-message">{{ messages[0] }}</div>
+    {% endif %}
+{% endwith %}
 </form>
 {% endblock %}

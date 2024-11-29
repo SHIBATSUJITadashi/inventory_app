@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}在庫管理システム{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-left">
-                {% if name %}
-                <span>登録者：{{ name }}</span>
-                {% endif %}
+                <a href="{{ url_for('index') }}">ホーム</a>
             </div>
             <div class="nav-right">
-                {% if request.endpoint != 'index' %}
-                <a href="/">ホーム</a>
-                <a href="/inventory">在庫一覧</a>
-                <a href="/inventory/add">在庫追加</a>
-                <a href="/alerts">アラート一覧</a>
+                {% if "username" in session %}
+                    <a href="{{ url_for('inventory_list') }}">在庫一覧</a>
+                    <a href="{{ url_for('add_inventory') }}">在庫追加</a>
+                    <a href="{{ url_for('alert_list') }}">アラート一覧</a>
+                    <a href="{{ url_for('logout') }}">ログアウト</a>
                 {% endif %}
             </div>
         </nav>
@@ -31,7 +29,7 @@
     </main>
 
     <footer>
-        <p>© 2024 喫茶店 在庫管理システム</p>
+        <p>&copy; 2024 在庫管理システム</p>
     </footer>
 </body>
 </html>
