@@ -1,33 +1,27 @@
+<!-- 在庫編集ページ -->
 {% extends "layout.html" %}
-{% block title %}在庫編集{% endblock %}
 
 {% block content %}
 <h1>在庫編集</h1>
-<form method="POST" action="/inventory/edit/{{ item.id }}">
-    <label for="name">商品名:</label>
-    <input type="text" id="name" name="name" value="{{ item.name }}" required>
 
-    <label for="quantity">在庫数:</label>
-    <input type="number" id="quantity" name="quantity" value="{{ item.quantity }}" required>
-
-    <label for="unit">単位:</label>
-    <select id="unit" name="unit" required>
-        <option value="個" {% if item.unit == "個" %}selected{% endif %}>個</option>
-        <option value="袋" {% if item.unit == "袋" %}selected{% endif %}>袋</option>
-        <option value="箱" {% if item.unit == "箱" %}selected{% endif %}>箱</option>
-        <option value="g" {% if item.unit == "g" %}selected{% endif %}>g</option>
-        <option value="kg" {% if item.unit == "kg" %}selected{% endif %}>kg</option>
-        <option value="ml" {% if item.unit == "ml" %}selected{% endif %}>ml</option>
-        <option value="L" {% if item.unit == "L" %}selected{% endif %}>L</option>
-        <option value="枚" {% if item.unit == "枚" %}selected{% endif %}>枚</option>
-        <option value="本" {% if item.unit == "本" %}selected{% endif %}>本</option>
-        <option value="パック" {% if item.unit == "パック" %}selected{% endif %}>パック</option>
-        <option value="セット" {% if item.unit == "セット" %}selected{% endif %}>セット</option>
-    </select>
-
-    <label for="min_quantity">最小在庫数:</label>
-    <input type="number" id="min_quantity" name="min_quantity" value="{{ item.min_quantity }}" required>
-
+<form method="POST">
+    <div>
+        <label for="name">商品名:</label>
+        <input type="text" id="name" name="name" value="{{ inventory_item.name }}" required>
+    </div>
+    <div>
+        <label for="quantity">在庫数:</label>
+        <input type="number" id="quantity" name="quantity" value="{{ inventory_item.quantity }}" required>
+    </div>
+    <div>
+        <label for="unit">単位:</label>
+        <input type="text" id="unit" name="unit" value="{{ inventory_item.unit }}" required>
+    </div>
+    <div>
+        <label for="min_quantity">最小在庫数:</label>
+        <input type="number" id="min_quantity" name="min_quantity" value="{{ inventory_item.min_quantity }}" required>
+    </div>
     <button type="submit">更新</button>
 </form>
+
 {% endblock %}

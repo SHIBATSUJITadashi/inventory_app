@@ -1,33 +1,38 @@
+<!-- 在庫一覧ページ -->
 {% extends "layout.html" %}
 
-{% block title %}在庫一覧 - 在庫管理システム{% endblock %}
-
 {% block content %}
-    <h1>在庫一覧</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>商品名</th>
-                <th>在庫数</th>
-                <th>単位</th>
-                <th>最小在庫数</th>
-                <th>最終更新日時</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in inventory %}
-                <tr {% if item.quantity < item.min_quantity %} style="background-color: #ffcccc;" {% endif %}>
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.unit }}</td>
-                    <td>{{ item.min_quantity }}</td>
-                    <td>{{ item.updated_at.strftime('%Y-%m-%d %H:%M') }}</td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="5">在庫はありません。</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<h1>在庫一覧</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>商品名</th>
+            <th>在庫数</th>
+            <th>単位</th>
+            <th>最小在庫数</th>
+            <th>最終更新日時</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in inventory %}
+        <tr>
+            <td>{{ item.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.unit }}</td>
+            <td>{{ item.min_quantity }}</td>
+            <td>{{ item.updated_at }}</td>
+            <td>
+                <a href="{{ url_for('edit_inventory', id=item.id) }}" class="btn btn-edit">編集</a>
+                <!-- 削除ボタン -->
+                <form action="{{ url_for('delete_inventory', id=item.id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-delete">削除</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 {% endblock %}

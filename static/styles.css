@@ -17,9 +17,10 @@ header nav {
 }
 
 .nav-left {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: bold;
-    color: #f0f0f0;
+    color: white;
+    margin-left: 1rem;  /* 左端から少し余白を開ける */
 }
 
 .nav-right {
@@ -174,3 +175,12 @@ form button {
 form button:hover {
     background-color: #0056b3;
 }
+
+/* ユーザー名のスタイル */
+.nav-username {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    margin-right: 1rem;
+}
+

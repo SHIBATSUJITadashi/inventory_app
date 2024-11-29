@@ -10,7 +10,10 @@
     <header>
         <nav>
             <div class="nav-left">
-                <a href="{{ url_for('index') }}">ホーム</a>
+                {% if "username" in session %}
+                    <!-- ログインネームを表示 -->
+                    <span class="nav-username">ようこそ、{{ session['username'] }}さん</span>
+                {% endif %}
             </div>
             <div class="nav-right">
                 {% if "username" in session %}
