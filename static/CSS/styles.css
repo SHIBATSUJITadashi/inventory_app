@@ -1,0 +1,176 @@
+/* ボディの基本スタイル */ 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* ヘッダーのスタイル */
+header nav {
+    display: flex;
+    justify-content: space-between; /* 左右に分ける */
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+}
+
+.nav-left {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+.nav-right {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-right a:hover {
+    text-decoration: underline;
+}
+
+/* メインコンテンツのスタイル */
+main {
+    padding: 2rem;
+    background: white;
+    margin: 2rem auto;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* テーブル全体のスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* テーブルヘッダーのスタイル */
+thead th {
+    text-align: center; /* 中央揃え */
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #ddd;
+}
+
+/* テーブルデータのスタイル */
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center; /* 中央揃え */
+    vertical-align: middle;  /* 垂直方向にも中央揃え */
+}
+
+/* アラート行のスタイル（最小在庫数を下回った場合） */
+tbody tr.alert {
+    background-color: #ffcccc; /* 赤みがかった背景色 */
+    font-weight: bold;
+    color: #d9534f; /* 赤文字で目立たせる */
+}
+
+/* ボタン全般のスタイル */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 編集ボタン */
+.btn-edit {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* 削除ボタン */
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    border: 1px solid #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #a71d2a;
+    color: white;
+}
+
+/* フッターのスタイル */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    margin-top: 2rem;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    table th, table td {
+        font-size: 0.9rem;
+    }
+
+    form input, form button, form select {
+        font-size: 0.9rem;
+    }
+}
+
+/* フォームのスタイル */
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}

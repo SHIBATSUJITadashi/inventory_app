@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}アラート一覧{% endblock %}
+
+{% block content %}
+<h1>アラート一覧</h1>
+{% if alerts %}
+<table>
+    <thead>
+        <tr>
+            <th>商品名</th>
+            <th>現在の在庫数</th>
+            <th>最小在庫数</th>
+            <th>発生日時</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for alert in alerts %}
+        <tr>
+            <td>{{ alert.inventory.name }}</td>
+            <td>{{ alert.inventory.quantity }}</td>
+            <td>{{ alert.inventory.min_quantity }}</td>
+            <td>{{ alert.triggered_at.strftime('%Y-%m-%d %H:%M') }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>現在、アラートはありません。</p>
+{% endif %}
+{% endblock %}

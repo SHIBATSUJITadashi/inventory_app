@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block title %}在庫追加{% endblock %}
+
+{% block content %}
+<h1>在庫追加</h1>
+<form method="POST" action="/inventory/add">
+    <label for="name">商品名:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="quantity">在庫数:</label>
+    <input type="number" id="quantity" name="quantity" required>
+
+    <label for="unit">単位:</label>
+    <select id="unit" name="unit" required>
+        <option value="個">個</option>
+        <option value="袋">袋</option>
+        <option value="箱">箱</option>
+        <option value="g">g</option>
+        <option value="kg">kg</option>
+        <option value="ml">ml</option>
+        <option value="L">L</option>
+        <option value="枚">枚</option>
+        <option value="本">本</option>
+        <option value="パック">パック</option>
+        <option value="セット">セット</option>
+    </select>
+
+    <label for="min_quantity">最小在庫数:</label>
+    <input type="number" id="min_quantity" name="min_quantity" required>
+
+    <button type="submit">追加</button>
+</form>
+{% endblock %}

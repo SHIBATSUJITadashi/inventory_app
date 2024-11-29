@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}ホーム - 在庫管理システム{% endblock %}
+
+{% block content %}
+<h1>在庫管理システムへようこそ</h1>
+<p>下のプルダウンからお名前を選択してください。</p>
+
+<form method="POST" action="/">
+    <label for="name">お名前:</label>
+    <select id="name" name="name" required>
+        <option value="" disabled selected>選択してください</option>
+        <option value="AAAA">AAAA</option>
+        <option value="BBBB">BBBB</option>
+        <option value="CCCC">CCCC</option>
+        <option value="DDDD">DDDD</option>
+    </select>
+    <button type="submit">送信</button>
+</form>
+{% endblock %}

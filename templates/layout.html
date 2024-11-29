@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}在庫管理システム{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                {% if name %}
+                <span>登録者：{{ name }}</span>
+                {% endif %}
+            </div>
+            <div class="nav-right">
+                {% if request.endpoint != 'index' %}
+                <a href="/">ホーム</a>
+                <a href="/inventory">在庫一覧</a>
+                <a href="/inventory/add">在庫追加</a>
+                <a href="/alerts">アラート一覧</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2024 喫茶店 在庫管理システム</p>
+    </footer>
+</body>
+</html>
