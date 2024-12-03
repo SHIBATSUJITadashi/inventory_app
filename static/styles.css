@@ -30,7 +30,8 @@ header nav {
 .nav-right a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-weig
+    ht: bold;
 }
 
 .nav-right a:hover {
@@ -174,3 +175,19 @@ form button {
 form button:hover {
     background-color: #0056b3;
 }
+
+.alert {
+    background-color: #ffcccc; /* 赤みがかった背景色 */
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    /* 最終更新日時を改行するスタイル */
+    .last-updated {
+        white-space: pre-wrap; /* 改行を有効にする */
+        word-break: break-word; /* 単語が長すぎる場合に折り返す */
+        font-size: 0.9rem; /* スマホ向けに文字サイズを調整 */
+    }
+}
+
+

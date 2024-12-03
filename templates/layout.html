@@ -10,13 +10,16 @@
     <header>
         <nav>
             <div class="nav-left">
-                <a href="{{ url_for('index') }}">ホーム</a>
+                {% if "username" in session %}
+                    <!-- ログインネームを表示 -->
+                    <span class="nav-username">ようこそ、{{ session['username'] }}さん</span>
+                {% endif %}
             </div>
             <div class="nav-right">
                 {% if "username" in session %}
                     <a href="{{ url_for('inventory_list') }}">在庫一覧</a>
                     <a href="{{ url_for('add_inventory') }}">在庫追加</a>
-                    <a href="{{ url_for('alert_list') }}">アラート一覧</a>
+                    <!-- アラート一覧のリンクを削除 -->
                     <a href="{{ url_for('logout') }}">ログアウト</a>
                 {% endif %}
             </div>
