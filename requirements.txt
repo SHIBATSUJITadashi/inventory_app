@@ -1,0 +1,6 @@
+flask
+gunicorn
+pytz
+flask_sqlalchemy
+flask_migrate
+werkzeug
