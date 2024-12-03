@@ -7,7 +7,12 @@ from flask_migrate import Migrate
 import pytz
 import os
 
-app = Flask(__name__)
+# Flaskアプリの設定
+app = Flask(
+    __name__,
+    template_folder="templates",  # テンプレートフォルダの明示
+    static_folder="static"       # 静的ファイルフォルダの明示
+)
 app.config.from_object(Config)
 
 # データベースの設定
